@@ -900,12 +900,12 @@
         // Sample Data
         function initializeSampleData() {
             config.useCases = [
-                { id: 1, name: "Onboarding a new user", category: "Joiner/Mover/Leaver", formula: "numUsers * staffCount * laborRate * hours" },
-                { id: 2, name: "Offboarding an employee", category: "Joiner/Mover/Leaver", formula: "numUsers * staffCount * laborRate * hours" },
+                { id: 1, name: "New Hire Onboarding", category: "Joiner/Mover/Leaver", formula: "numUsers * staffCount * laborRate * hours" },
+                { id: 2, name: "Offboarding/Terminations", category: "Joiner/Mover/Leaver", formula: "numUsers * staffCount * laborRate * hours" },
                 { id: 3, name: "Duplicate User Creation", category: "Data Quality", formula: "numDuplicates * staffCount * laborRate * hours" },
-                { id: 4, name: "Access request processing delays", category: "Access Management", formula: "delayHours * numUsers * laborRate" },
-                { id: 5, name: "GRC - Manual Campaigns", category: "Governance", formula: "numCampaigns * reviewers * laborRate * hoursPerReview" },
-                { id: 6, name: "Service Desk - Password resets", category: "Operations", formula: "numResets * laborRate * timePerReset" }
+                { id: 4, name: "Access Request Fulfillment Delays", category: "Access Management", formula: "delayHours * numUsers * laborRate" },
+                { id: 5, name: "Access Reviews", category: "Governance", formula: "numCampaigns * reviewers * laborRate * hoursPerReview" },
+                { id: 6, name: "Password Resets", category: "Operations", formula: "numResets * laborRate * timePerReset" }
             ];
 
             config.questions = [
