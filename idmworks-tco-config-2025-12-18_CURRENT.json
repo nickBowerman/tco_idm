@@ -1,0 +1,750 @@
+{
+  "domains": [
+    {
+      "id": 1,
+      "name": "IGA",
+      "icon": "🔐",
+      "description": "Identity Governance & Administration"
+    },
+    {
+      "id": 2,
+      "name": "CIAM",
+      "icon": "👤",
+      "description": "Customer Identity & Access Management"
+    },
+    {
+      "id": 3,
+      "name": "PAM",
+      "icon": "🔑",
+      "description": "Privileged Access Management"
+    },
+    {
+      "id": 4,
+      "name": "Access Management",
+      "icon": "🚪",
+      "description": "General Access Control"
+    }
+  ],
+  "useCases": [
+    {
+      "id": 1,
+      "domainId": 1,
+      "name": "Onboarding an employee",
+      "category": "Joiner/Mover/Leaver",
+      "formula": "newHires * hours * staffRate"
+    },
+    {
+      "id": 2,
+      "domainId": 1,
+      "name": "Offboarding an employee",
+      "category": "Joiner/Mover/Leaver",
+      "formula": "totalTerms * hours * staffRate"
+    },
+    {
+      "id": 3,
+      "domainId": 1,
+      "name": "Onboarding third-party workers (e.g., external, contingent, contractors, vendors",
+      "category": "Joiner/Mover/Leaver",
+      "formula": "newHires * hours * staffRate"
+    },
+    {
+      "id": 4,
+      "domainId": 1,
+      "name": "Offboarding third-party workers (e.g., external, contingent, contractors, vendors",
+      "category": "Joiner/Mover/Leaver",
+      "formula": "totalTerms * hours * staffRate"
+    },
+    {
+      "id": 5,
+      "domainId": 1,
+      "name": "Full onboarding",
+      "category": "Joiner/Mover/Leaver",
+      "formula": "newHires * staffCount * hours * staffRate"
+    },
+    {
+      "id": 6,
+      "domainId": 1,
+      "name": "Full offboarding",
+      "category": "Joiner/Mover/Leaver",
+      "formula": "totalTerms * staffCount * hours * staffRate"
+    },
+    {
+      "id": 7,
+      "domainId": 1,
+      "name": "Users waiting for access to do their job",
+      "category": "Access Requests",
+      "formula": "hoursWaiting * totalUsers * staffRate"
+    },
+    {
+      "id": 8,
+      "domainId": 1,
+      "name": "Managing a job transfer",
+      "category": "Joiner/Mover/Leaver",
+      "formula": "numUsers * hours * staffRate"
+    },
+    {
+      "id": 9,
+      "domainId": 1,
+      "name": "Converting employees to contractors or contractors to employees",
+      "category": "Joiner/Mover/Leaver",
+      "formula": "numUsers * hours * staffRate"
+    },
+    {
+      "id": 10,
+      "domainId": 1,
+      "name": "Rehires",
+      "category": "Joiner/Mover/Leaver",
+      "formula": "numUsers * hours * staffRate"
+    },
+    {
+      "id": 11,
+      "domainId": 1,
+      "name": "Rescinded offers",
+      "category": "Joiner/Mover/Leaver",
+      "formula": "numUsers * hours * staffRate"
+    },
+    {
+      "id": 12,
+      "domainId": 3,
+      "name": "Onboarding privileged accounts into PAM tool",
+      "category": "PAM Onboarding",
+      "formula": "numAccounts * hours * staffRate"
+    },
+    {
+      "id": 13,
+      "domainId": 3,
+      "name": "Requests for new privileged accounts",
+      "category": "PAM Access Requests",
+      "formula": "numRequests * hours * staffRate"
+    },
+    {
+      "id": 14,
+      "domainId": 3,
+      "name": "Support for privileged accounts (e.g., syncing errors, credential rotation failures, user training)",
+      "category": "PAM - Operational",
+      "formula": "numRequests * hours * staffRate"
+    },
+    {
+      "id": 15,
+      "domainId": 3,
+      "name": "Privileged access audit requests",
+      "category": "PAM - Operational",
+      "formula": "numRequests * hours * staffRate"
+    },
+    {
+      "id": 16,
+      "domainId": 4,
+      "name": "Password resets",
+      "category": "Credential Management",
+      "formula": "numResets * (minutes/60) * staffRate"
+    },
+    {
+      "id": 17,
+      "domainId": 4,
+      "name": "SSO application onboarding",
+      "category": "Implementation",
+      "formula": "numApps * hours * staffRate"
+    },
+    {
+      "id": 18,
+      "domainId": 4,
+      "name": "User support for SSO failure",
+      "category": "Operational",
+      "formula": "numFailures * (minutes/60) * staffRate"
+    },
+    {
+      "id": 19,
+      "domainId": 4,
+      "name": "Users unable to login",
+      "category": "Operational",
+      "formula": "numLockouts * (minutes/60) * staffRate"
+    },
+    {
+      "id": 20,
+      "domainId": 4,
+      "name": "MFA support",
+      "category": "Operational",
+      "formula": "numTickets * (minutes/60) * staffRate"
+    },
+    {
+      "id": 21,
+      "domainId": 4,
+      "name": "Extended (non-security/non-IT) app onboarding costs",
+      "category": "Implementation",
+      "formula": "numUsers * hours * staffRate"
+    },
+    {
+      "id": 22,
+      "domainId": 4,
+      "name": "Access management change management",
+      "category": "Change Management",
+      "formula": "changeRequests * hours * staffRate"
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "text": "How many internal new hires are onboarded per month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 2,
+      "text": "How many hours (on average) are spent manually provisioning these people?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 3,
+      "text": "What is the average hourly labor rate for the team members that perform this work?",
+      "inputType": "number",
+      "defaultValue": 60
+    },
+    {
+      "id": 4,
+      "text": "How many third-party workers (e.g., external, contingent, contractors, vendors) are onboarded per month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 5,
+      "text": "How many employees are offboarded per month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 6,
+      "text": "How many third-party workers (e.g., external, contingent, contractors, vendors) are offboarded per month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 7,
+      "text": "How many hours (on average) are spent offboarding these people?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 10,
+      "text": "How many provisioning workflows failures occur in a month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 11,
+      "text": "How many total workers (employees + third party individuals) are onboarded per month? ",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 12,
+      "text": "How many total workers (employees + third party individuals) are offboarded per month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 13,
+      "text": "How many non-security/non-IT workers are involved to onboard a new hire?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 14,
+      "text": "How many non-security/non-IT workers are involved in offboarding a worker?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 15,
+      "text": "How many hours do these non-security/non-IT workers spend on this work?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 16,
+      "text": "What is the average amount of time a new user cannot perform their job responsibilities because of insufficient user account access? ",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 17,
+      "text": "How many new users per month are unable to perform their job responsibilities because of insufficient user account access?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 18,
+      "text": "What is the average hourly labor rate for each worker? ",
+      "inputType": "number",
+      "defaultValue": 60
+    },
+    {
+      "id": 19,
+      "text": "What is the average number of job transfers that occur in a given month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 20,
+      "text": "How many hours (on average) are spent processing a job transfer? (e.g., updating records, removing access, adding access, obtaining approvals, tracking and managing sunset dates)",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 21,
+      "text": "How many hours (on average) are spent processing these requests?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 22,
+      "text": "What is the average number of worker conversions (e.g., FTE to contractor, contractor to FTE) that occur in a given month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 23,
+      "text": "What is the average number of rehires that occur in a given month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 24,
+      "text": "What is the average number of rescinded offers that occur in a given month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 25,
+      "text": "Hour many privileged accounts (on average) are onboarded into your PAM tool in a given month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 26,
+      "text": "What is the average number of new privileged account requests completed in a given month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 27,
+      "text": "How many requests for privileged account support are received in a given month? (e.g., syncing errors, credential rotation failures, user training)",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 28,
+      "text": "What is the average number of audit/compliance requests for privileged access controls in a given month? ",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 29,
+      "text": "How many password resets are performed in a given month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 30,
+      "text": "How many minutes (on average) are spent processing these requests?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 31,
+      "text": "What is the average number of applications onboarded into the enterprise SSO solution per month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 32,
+      "text": "How many hours (on average) are spent on this work?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 33,
+      "text": "What is the average number of SSO failure tickets investigated in a given month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 34,
+      "text": "What is the average time to completion (in minutes) for each of these requests?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 35,
+      "text": "What is the average hourly labor rate for a user impacted by this delay?",
+      "inputType": "number",
+      "defaultValue": 60
+    },
+    {
+      "id": 36,
+      "text": "What is the average number of MFA support tickets submitted each month?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 37,
+      "text": "In a given month, how many business line users (e.g., SMEs, application owners) are involved in onboarding applications into the enterprise SSO solution?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 38,
+      "text": "In a given month, how many change requests (on average) are submitted for the technologies supporting authentication?",
+      "inputType": "number",
+      "defaultValue": 1
+    },
+    {
+      "id": 39,
+      "text": "On average, how much time (in hours) is spent creating and managing each change request?",
+      "inputType": "number",
+      "defaultValue": 1
+    }
+  ],
+  "mappings": [
+    {
+      "useCaseId": 1,
+      "questionId": 1,
+      "variableName": "newHires"
+    },
+    {
+      "useCaseId": 1,
+      "questionId": 2,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 1,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 2,
+      "questionId": 5,
+      "variableName": "totalTerms"
+    },
+    {
+      "useCaseId": 2,
+      "questionId": 7,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 2,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 3,
+      "questionId": 4,
+      "variableName": "newHires"
+    },
+    {
+      "useCaseId": 3,
+      "questionId": 2,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 3,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 4,
+      "questionId": 6,
+      "variableName": "totalTerms"
+    },
+    {
+      "useCaseId": 4,
+      "questionId": 7,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 4,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 5,
+      "questionId": 11,
+      "variableName": "newHires"
+    },
+    {
+      "useCaseId": 5,
+      "questionId": 13,
+      "variableName": "staffCount"
+    },
+    {
+      "useCaseId": 5,
+      "questionId": 15,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 5,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 6,
+      "questionId": 12,
+      "variableName": "totalTerms"
+    },
+    {
+      "useCaseId": 6,
+      "questionId": 14,
+      "variableName": "staffCount"
+    },
+    {
+      "useCaseId": 6,
+      "questionId": 15,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 6,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 7,
+      "questionId": 16,
+      "variableName": "hoursWaiting"
+    },
+    {
+      "useCaseId": 7,
+      "questionId": 17,
+      "variableName": "totalUsers"
+    },
+    {
+      "useCaseId": 7,
+      "questionId": 18,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 8,
+      "questionId": 19,
+      "variableName": "numUsers"
+    },
+    {
+      "useCaseId": 8,
+      "questionId": 20,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 8,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 9,
+      "questionId": 22,
+      "variableName": "numUsers"
+    },
+    {
+      "useCaseId": 9,
+      "questionId": 21,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 9,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 10,
+      "questionId": 23,
+      "variableName": "numUsers"
+    },
+    {
+      "useCaseId": 10,
+      "questionId": 21,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 10,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 11,
+      "questionId": 24,
+      "variableName": "numUsers"
+    },
+    {
+      "useCaseId": 11,
+      "questionId": 21,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 11,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 12,
+      "questionId": 25,
+      "variableName": "numAccounts"
+    },
+    {
+      "useCaseId": 12,
+      "questionId": 21,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 12,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 13,
+      "questionId": 26,
+      "variableName": "numRequests"
+    },
+    {
+      "useCaseId": 13,
+      "questionId": 21,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 13,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 14,
+      "questionId": 27,
+      "variableName": "numRequests"
+    },
+    {
+      "useCaseId": 14,
+      "questionId": 21,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 14,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 15,
+      "questionId": 28,
+      "variableName": "numRequests"
+    },
+    {
+      "useCaseId": 15,
+      "questionId": 21,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 15,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 16,
+      "questionId": 29,
+      "variableName": "numResets"
+    },
+    {
+      "useCaseId": 16,
+      "questionId": 30,
+      "variableName": "minutes"
+    },
+    {
+      "useCaseId": 16,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 17,
+      "questionId": 31,
+      "variableName": "numApps"
+    },
+    {
+      "useCaseId": 17,
+      "questionId": 32,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 17,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 18,
+      "questionId": 33,
+      "variableName": "numFailures"
+    },
+    {
+      "useCaseId": 18,
+      "questionId": 30,
+      "variableName": "minutes"
+    },
+    {
+      "useCaseId": 18,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 19,
+      "questionId": 33,
+      "variableName": "numLockouts"
+    },
+    {
+      "useCaseId": 19,
+      "questionId": 34,
+      "variableName": "minutes"
+    },
+    {
+      "useCaseId": 19,
+      "questionId": 35,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 20,
+      "questionId": 36,
+      "variableName": "numTickets"
+    },
+    {
+      "useCaseId": 20,
+      "questionId": 34,
+      "variableName": "minutes"
+    },
+    {
+      "useCaseId": 20,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 21,
+      "questionId": 37,
+      "variableName": "numUsers"
+    },
+    {
+      "useCaseId": 21,
+      "questionId": 32,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 21,
+      "questionId": 3,
+      "variableName": "staffRate"
+    },
+    {
+      "useCaseId": 22,
+      "questionId": 38,
+      "variableName": "changeRequests"
+    },
+    {
+      "useCaseId": 22,
+      "questionId": 39,
+      "variableName": "hours"
+    },
+    {
+      "useCaseId": 22,
+      "questionId": 3,
+      "variableName": "staffRate"
+    }
+  ]
+}
